@@ -5,4 +5,5 @@ dist
 target
 scripts/*
 !scripts/cleaner.c
+!scripts/deploy.ts
 Cargo.lock
