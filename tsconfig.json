@@ -2,5 +2,6 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "baseUrl": "."
-  }
+  },
+  "include": ["scripts/**/*.ts", "scripts/**/*.d.ts"]
 }
