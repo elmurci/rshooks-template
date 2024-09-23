@@ -27,6 +27,7 @@ async function main() {
     const hookPayload = createHookPayload({
       createFile: hookFile,
       namespace: 'base',
+      version: 0,
       flags: SetHookFlags.hsfOverride,
       hookOnArray: ['Invoke'],
     })
@@ -38,8 +39,6 @@ async function main() {
       hooks: [{ Hook: hookPayload }],
     } as SetHookParams)
 
-    console.log('Set Hook', setHook)
-
     const builtTx: Invoke = {
       TransactionType: 'Invoke',
       Account: wallet.classicAddress,
@@ -49,6 +48,8 @@ async function main() {
       wallet: wallet,
       tx: builtTx,
     })
+
+    console.log('result', result)
 
     const hookExecutions = await ExecutionUtility.getHookExecutionsFromMeta(client, result.meta as TransactionMetadata)
     console.log(hookExecutions.executions[0].HookReturnString)
